@@ -1,0 +1,63 @@
+.container {
+  max-width: 50%;
+  margin: auto;
+
+  .todo-app {
+    background: #fff;
+    margin-bottom: 40px;
+    position: relative;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 25px 50px 0 rgb(0 0 0 / 10%);
+
+    .todo-header {
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      .check-all {
+        position: absolute;
+        left: 10px;
+        cursor: pointer;
+        z-index: 1;
+      }
+    }
+  }
+  .title {
+    width: 100%;
+    font-size: 100px;
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 50px;
+    color: rgba(175, 47, 47, 0.15);
+  }
+  .form-input {
+    place-content: center;
+    display: flex;
+    width: 100%;
+
+    input {
+      padding: 16px 16px 16px 60px;
+      border: none;
+      background: rgba(0, 0, 0, 0.003);
+      box-shadow: inset 0 -2px 1px rgb(0 0 0 / 3%);
+      position: relative;
+      margin: 0;
+      width: 100%;
+      font-size: 24px;
+      font-family: inherit;
+      font-weight: inherit;
+      line-height: 1.4em;
+      border: 0;
+      color: inherit;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+}

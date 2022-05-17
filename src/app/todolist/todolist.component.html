@@ -1,0 +1,40 @@
+<div class="container">
+  <h1 class="title">todos</h1>
+  <div class="todo-app">
+    <div class="todo-header">
+      <mat-icon class="check-all" (click)="handleCheckAll()">check</mat-icon>
+      <form
+        (ngSubmit)="handleCreate(f); $event.preventDefault()"
+        (keypress.enter)="handleCreate(f); $event.preventDefault()"
+        #f="ngForm"
+        novalidate
+        class="form-input"
+      >
+        <input
+          ngModel
+          name="name"
+          autocomplete="off"
+          placeholder="What needs to be done?"
+        />
+      </form>
+    </div>
+    <div>
+      <ul>
+        <app-todo-item
+          *ngFor="let todo of listTodoShow"
+          [todo]="todo"
+          [listTodo]="listTodo"
+          (newItemEvent)="handleCompleted($event)"
+          (isEditEvent)="handleShowEdit($event)"
+          (isChangeEvent)="handleEdit($event)"
+          (isDeleteEvent)="handleDelete($event)"
+        ></app-todo-item>
+      </ul>
+    </div>
+
+    <app-footer
+      [listTodo]="listTodo"
+      (isFilterEvent)="handleFilter($event)"
+    ></app-footer>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<li class="item-todo">
+  <div class="round">
+    <input type="checkbox" [checked]="todo.done" id="checkbox" />
+    <label for="checkbox" (click)="handleCompleted(todo)"></label>
+  </div>
+  <p
+    class="name-todo"
+    [class.done-todo]="todo.done"
+    (dblclick)="isEdit = true"
+    *ngIf="!isEdit"
+    #nameTodo
+  >
+    {{ todo.name }}
+  </p>
+  <form
+    (ngSubmit)="handleEdit(edit, todo.id); $event.preventDefault()"
+    (keypress.enter)="handleEdit(edit, todo.id); $event.preventDefault()"
+    #edit="ngForm"
+    novalidate
+    class="form-input"
+    *ngIf="isEdit"
+  >
+    <input
+      [(ngModel)]="todo.name"
+      name="name"
+      autocomplete="off"
+      #editInput
+      (blur)="isEdit = false"
+    />
+  </form>
+  <mat-icon
+    aria-hidden="false"
+    aria-label="Example home icon"
+    class="icon-close"
+    *ngIf="!isEdit"
+    (click)="handleDelete(todo.id)"
+    >close</mat-icon
+  >
+</li>

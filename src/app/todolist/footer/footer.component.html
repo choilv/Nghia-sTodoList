@@ -1,0 +1,8 @@
+<div class="footer">
+  <div>{{ listTodo | lengthListTodoUnDone }} items left</div>
+  <div class="group-filter">
+    <div (click)="handleFilter('')">All</div>
+    <div (click)="handleFilter('active')">Active</div>
+    <div (click)="handleFilter('completed')">Completed</div>
+  </div>
+</div>
